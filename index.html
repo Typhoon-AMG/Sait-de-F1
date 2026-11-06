@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio F1 - Isabele</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0a0f1e;
+    color: #f2f2f2;
+    line-height: 1.6;
+  }
+
+  /* HEADER / HERO */
+  header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0a0f1e 0%, #001a3d 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0066ff, #00b3ff, #0066ff);
+  }
+
+  .hero-badge {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #0099ff;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  h1 span {
+    color: #0099ff;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #b3c2d9;
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #0066ff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 2px solid #0066ff;
+  }
+
+  .btn:hover {
+    background: transparent;
+    color: #0099ff;
+    transform: translateY(-3px);
+  }
+
+  /* SEÇÕES */
+  section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #0099ff;
+    margin: 18px auto 0;
+    border-radius: 2px;
+  }
+
+  /* SOBRE */
+  .sobre-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .sobre-text p {
+    color: #b3c2d9;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+  }
+
+  .sobre-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .stat {
+    background: #111a30;
+    border-left: 4px solid #0099ff;
+    padding: 24px;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .stat:hover {
+    transform: scale(1.05);
+  }
+
+  .stat-number {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0099ff;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8fa3c0;
+  }
+
+  /* CARDS (EQUIPES / PILOTOS) */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+  }
+
+  .card {
+    background: #111a30;
+    border-radius: 8px;
+    padding: 30px 26px;
+    border-top: 4px solid #0099ff;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0, 153, 255, 0.3);
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card p {
+    color: #b3c2d9;
+    font-size: 0.95rem;
+  }
+
+  .card .tag {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0099ff;
+    border: 1px solid #0099ff;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* CONTATO */
+  #contato {
+    text-align: center;
+  }
+
+  .contato-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .contato-links a {
+    color: #f2f2f2;
+    text-decoration: none;
+    border: 1px solid #1e2d4d;
+    padding: 12px 26px;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .contato-links a:hover {
+    border-color: #0099ff;
+    color: #0099ff;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid #1e2d4d;
+    color: #5a6d8a;
+    font-size: 0.9rem;
+  }
+
+  footer span { color: #0099ff; }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    .sobre-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero-badge">Portfólio • Fórmula 1</div>
+    <h1>Isabele</h1>
+    <p class="hero-subtitle">
+      Apaixonada por velocidade, estratégia e engenharia. Aqui compartilho minha jornada no universo da Fórmula 1.
+    </p>
+    <a href="#sobre" class="btn">Explorar</a>
+  </header>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="sobre-content">
+      <div class="sobre-text">
+        <p>
+          Olá! Meu nome é <strong>Isabele</strong> e sou uma entusiasta da Fórmula 1.
+          Desde criança acompanho corridas, estudei a história da categoria e adoro
+          analisar estratégias, telemetria e o desenvolvimento dos carros.
+        </p>
+        <p>
+          Este portfólio reúne minhas equipes favoritas, pilotos que admiro e projetos
+          pessoais relacionados ao automobilismo — como análises de corridas, design
+          de liveries e estudos sobre aerodinâmica.
+        </p>
+      </div>
+      <div class="sobre-stats">
+        <div class="stat">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Corridas analisadas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Equipes estudadas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Projetos pessoais</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Paixão pela F1</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPES FAVORITAS -->
+  <section id="equipes">
+    <h2 class="section-title">Equipes Favoritas</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Ferrari</h3>
+        <p>A equipe mais icônica da F1, com história, paixão e tradição em cada curva.</p>
+        <span class="tag">Scuderia</span>
+      </div>
+      <div class="card">
+        <h3>McLaren</h3>
+        <p>Engenharia britânica e pilotos lendários. Uma das maiores forças do grid.</p>
+        <span class="tag">Papaya</span>
+      </div>
+      <div class="card">
+        <h3>Red Bull Racing</h3>
+        <p>Domínio recente e estratégia agressiva. Revolucionou a era híbrida.</p>
+        <span class="tag">Energia</span>
+      </div>
+      <div class="card">
+        <h3>Mercedes-AMG</h3>
+        <p>Excelência técnica e hegemonia nos anos 2010. Referência em inovação.</p>
+        <span class="tag">Prata</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILOTOS -->
+  <section id="pilotos">
+    <h2 class="section-title">Pilotos que Admiro</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Kimi Antonelli</h3>
+        <p>Jovem prodígio italiano da nova geração. Talento precoce e futuro brilhante na F1.</p>
+        <span class="tag">Estrela em Ascensão</span>
+      </div>
+      <div class="card">
+        <h3>Ayrton Senna</h3>
+        <p>O maior ídolo brasileiro. Talento, determinação e carisma inigualáveis.</p>
+        <span class="tag">Lenda</span>
+      </div>
+      <div class="card">
+        <h3>Michael Schumacher</h3>
+        <p>Sete títulos mundiais e uma ética de trabalho que redefiniu a F1.</p>
+        <span class="tag">7x Campeão</span>
+      </div>
+      <div class="card">
+        <h3>Lewis Hamilton</h3>
+        <p>Recordista de poles e vitórias. Ativista e ícone dentro e fora das pistas.</p>
+        <span class="tag">7x Campeão</span>
+      </div>
+      <div class="card">
+        <h3>Max Verstappen</h3>
+        <p>Velocidade bruta e consistência impressionante na era moderna.</p>
+        <span class="tag">Tricampeão</span>
+      </div>
+      <div class="card">
+        <h3>Oscar Piastri</h3>
+        <p>Australiano talentoso e consistente. Uma das grandes promessas da nova geração da McLaren.</p>
+        <span class="tag">Promessa</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <h2 class="section-title">Contato</h2>
+    <p style="color:#b3c2d9; max-width:600px; margin:0 auto;">
+      Quer trocar ideias sobre F1, projetos ou parcerias? Me encontre nas redes:
+    </p>
+    <div class="contato-links">
+      <a href="https://github.com/seu-usuario" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/seu-usuario" target="_blank">LinkedIn</a>
+      <a href="https://instagram.com/seu-usuario" target="_blank">Instagram</a>
+      <a href="mailto:seuemail@exemplo.com">E-mail</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 <span>Isabele</span> — Portfólio Fórmula 1. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
